@@ -1,12 +1,12 @@
-package com.orctom.gradle.archetype
+package com.aksain.gradle.archetype
 
-import com.orctom.gradle.archetype.util.FileUtils
+
 import org.gradle.api.DefaultTask
 import org.gradle.api.logging.Logger
 import org.gradle.api.logging.Logging
 import org.gradle.api.tasks.TaskAction
 
-import static com.orctom.gradle.archetype.ArchetypePlugin.DIR_TARGET
+import static ArchetypePlugin.DIR_TARGET
 
 class ArchetypeCleanTask extends DefaultTask {
 
@@ -15,7 +15,7 @@ class ArchetypeCleanTask extends DefaultTask {
   @TaskAction
   create() {
     LOGGER.info('Cleaning...')
-    File targetDir = FileUtils.getResourceFile(project.projectDir, DIR_TARGET)
+    File targetDir = com.aksain.gradle.archetype.util.FileUtils.getResourceFile(project.projectDir, DIR_TARGET)
     if (targetDir.exists()) {
       targetDir.deleteDir()
       LOGGER.info('Deleted {}', targetDir.getAbsolutePath())

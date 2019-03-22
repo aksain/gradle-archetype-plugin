@@ -1,4 +1,4 @@
-package com.orctom.gradle.archetype.util
+package com.aksain.gradle.archetype.util
 
 class ConsoleUtils {
 

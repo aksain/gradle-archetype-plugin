@@ -22,16 +22,18 @@ dependencies {
 }
 
 pluginBundle {
-  website = 'https://github.com/orctom/gradle-archetype-plugin'
-  vcsUrl = 'https://github.com/orctom/gradle-archetype-plugin'
+  website = 'https://github.com/aksain/gradle-archetype-plugin'
+  vcsUrl = 'https://github.com/aksain/gradle-archetype-plugin'
 
   description = 'Gradle plugin that generate projects from template.'
   tags = ['archetype', 'template']
 
   plugins {
     plugin {
-      id = 'com.orctom.archetype'
+      id = 'com.aksain.archetype'
       displayName = 'Archetype Generate Plugin'
     }
   }
 }
+
+

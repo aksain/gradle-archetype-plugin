@@ -1,6 +1,6 @@
-package com.orctom.gradle.archetype.util
+package com.aksain.gradle.archetype.util
 
-import com.orctom.gradle.archetype.ArchetypePlugin
+import com.aksain.gradle.archetype.ArchetypePlugin
 import groovy.io.FileType
 import groovy.text.GStringTemplateEngine
 import org.gradle.api.logging.Logger

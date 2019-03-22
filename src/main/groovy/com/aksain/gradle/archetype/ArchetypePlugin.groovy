@@ -1,4 +1,4 @@
-package com.orctom.gradle.archetype
+package com.aksain.gradle.archetype
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project

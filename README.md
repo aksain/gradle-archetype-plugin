@@ -4,7 +4,7 @@ Maven archetype like plugin for Gradle.
 Generating projects from local template.
 
 ### Install
-https://plugins.gradle.org/plugin/com.orctom.archetype
+https://plugins.gradle.org/plugin/com.aksain.archetype
 
 ### Tasks
  * `cleanArchetype`: cleans the generated folders and files.
@@ -63,7 +63,7 @@ Variables that can be used in template files.
 
 #### Adding Custom variables
 Extra variables can be added via command line or programmatically with the
-`com.orctom.gradle.archetype.binding` prefix.
+`com.aksain.gradle.archetype.binding` prefix.
 
 Command line :
 ```
@@ -72,7 +72,7 @@ Command line :
 
 Property prefix :
 ```
-System.setProperty('com.orctom.gradle.archetype.binding.param1', value1)
+System.setProperty('com.aksain.gradle.archetype.binding.param1', value1)
 ```
 
 #### Programmatic Customization of Bindings
@@ -133,44 +133,12 @@ gradlew.bat
 It follows ant style. The tailing slash for directory is mandatory.
 
 ### Sample
-https://github.com/orctom/gradle-archetype-plugin/tree/master/src/test/resources/sample
+https://github.com/aksain/gradle-archetype-plugin/tree/master/src/test/resources/sample
 
 ### Known Issues
  * Doesn't work with property files that have such escapes: key=https`\`://aaa.bbb.ccc/xxx, remove the `\` escape to have it work.
  * In interactive mode, the prompt text got truncated sometimes.
 
 ### Change Logs
-#### 1.4.6.3
- * Fixed issue [#19](https://github.com/orctom/gradle-archetype-plugin/pull/19) blank lines and comments support in `.nontemplate`
-
-#### 1.4.5
- * Fixed issue [#17](https://github.com/orctom/gradle-archetype-plugin/pull/17)
-
-#### 1.4.4
- * Fixed issue [#16](https://github.com/orctom/gradle-archetype-plugin/pull/17) (introduced in `1.4.3`)
-
-#### 1.4.3
- * Fixed issue for windows.[#15](https://github.com/orctom/gradle-archetype-plugin/pull/15)
-
-#### 1.4.2
- * Added escape for `@`.[#14](https://github.com/orctom/gradle-archetype-plugin/pull/14)
-
-#### 1.4.1
- * Adding ability to programmatically add bindings. #12
- * Do not override properties if already defined. #13
-
-#### 1.4
- * Renamed `clean` task to `cleanArchetype`, as _"Declaring custom check, **clean**, build or assemble tasks is not allowed anymore when using the lifecycle plugin."_ (https://docs.gradle.org/3.0/release-notes)
- * Allowing full GString expressions to be passed on to parser
-
-#### 1.3.1.1
- * Fixed issue in 1.3.1, `packagePath` and `namePath` not working as expected.
-
-#### 1.3.1
- * Added variables: `namePackage` and `namePath` (**NOTICE: do NOT use this buggy version**).
-
-#### 1.3
- * The target folder where the generated project(s) locates is not changeable, fixed to `generated`.
- * The generation will fail by default, if there are files with the same name exist in the `generated` folder.
- * Added `clean` task that will have `generated` folder recreated.
- * Changed `print` and `println` to logger, so please append `-i` args to have the log printed out.
+#### 1.0.0
+ * Fixed issue [#19](https://github.com/aksain/gradle-archetype-plugin/pull/19) blank lines and comments support in `.nontemplate`

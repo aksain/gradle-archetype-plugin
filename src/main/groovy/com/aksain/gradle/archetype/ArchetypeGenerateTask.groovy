@@ -1,7 +1,6 @@
-package com.orctom.gradle.archetype
+package com.aksain.gradle.archetype
 
-import com.orctom.gradle.archetype.util.ConsoleUtils
-import com.orctom.gradle.archetype.util.FileUtils
+
 import org.gradle.api.DefaultTask
 import org.gradle.api.logging.Logger
 import org.gradle.api.logging.Logging
@@ -52,7 +51,7 @@ class ArchetypeGenerateTask extends DefaultTask {
 
     logBindings(binding)
 
-    FileUtils.generate(project.projectDir, templatePath, binding, isFailIfFileExist())
+    com.aksain.gradle.archetype.util.FileUtils.generate(project.projectDir, templatePath, binding, isFailIfFileExist())
   }
 
   private static void extendedBinding(Map binding) {
@@ -109,7 +108,7 @@ class ArchetypeGenerateTask extends DefaultTask {
   }
 
   private static void addPropertyScopedBindings(binding) {
-    final String propertyBinding = "com.orctom.gradle.archetype.binding"
+    final String propertyBinding = "com.aksain.gradle.archetype.binding"
     final int scopeSize = propertyBinding.length() + 1
     System.getProperties().findAll { p -> p.key.startsWith(propertyBinding) }
         .each { p -> binding.put(p.key.substring(scopeSize), p.value) }
@@ -119,7 +118,7 @@ class ArchetypeGenerateTask extends DefaultTask {
     String value = System.getProperty(paramName)
 
     if (!value) {
-      value = ConsoleUtils.prompt(prompt, defaultValue)
+      value = com.aksain.gradle.archetype.util.ConsoleUtils.prompt(prompt, defaultValue)
     }
 
     if (!value) {
