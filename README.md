@@ -1,4 +1,4 @@
-## gradle-archetype-plugin [![Build Status](https://travis-ci.org/orctom/gradle-archetype-plugin.svg)](https://travis-ci.org/orctom/gradle-archetype-plugin)
+## gradle-archetype-plugin [![Build Status](https://travis-ci.org/aksain/gradle-archetype-plugin.svg)](https://travis-ci.org/aksain/gradle-archetype-plugin)
 
 Maven archetype like plugin for Gradle.
 Generating projects from local template.
