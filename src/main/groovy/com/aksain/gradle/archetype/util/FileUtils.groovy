@@ -152,12 +152,14 @@ class FileUtils {
   private static String escape(String text) {
     String escaped = text.replaceAll('\\$', '__DOLLAR__')
     escaped = escaped.replaceAll('@@', '__AT__')
+    escaped = escaped.replace('\\', '__FS__')
     escaped
   }
 
   private static String unescape(String resolved) {
     String unescaped = resolved.replaceAll('__DOLLAR__', '\\$')
     unescaped = unescaped.replaceAll('__AT__', '@')
+    unescaped = unescaped.replace('__FS__', '\\')
     unescaped
   }
 

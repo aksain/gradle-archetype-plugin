@@ -123,6 +123,8 @@ Sample:
 **/*.xz
 **/*.tar
 **/*.7z
+**/*.p12
+**/*.pks
 
 gradle/
 .gradle/
@@ -136,9 +138,8 @@ It follows ant style. The tailing slash for directory is mandatory.
 https://github.com/aksain/gradle-archetype-plugin/tree/master/src/test/resources/sample
 
 ### Known Issues
- * Doesn't work with property files that have such escapes: key=https`\`://aaa.bbb.ccc/xxx, remove the `\` escape to have it work.
  * In interactive mode, the prompt text got truncated sometimes.
 
 ### Change Logs
-#### 1.0.0
- * Fixed issue [#19](https://github.com/aksain/gradle-archetype-plugin/pull/19) blank lines and comments support in `.nontemplate`
+#### 1.0.0-rc1
+ * Fixed issue related to files containing '\\'
