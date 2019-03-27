@@ -5,7 +5,7 @@ import org.gradle.api.Project
 
 class ArchetypePlugin implements Plugin<Project> {
 
-  static final String DIR_TEMPLATES = 'src/main/resources/templates'
+  static final String DIR_TEMPLATES = 'templates'
   static final String DIR_TARGET = 'generated'
 
   @Override
