@@ -60,6 +60,8 @@ class FileUtils {
         return
       }
       def files = finder.getFileNames(templateDirPath, it)
+      LOGGER.debug(it.toString())
+      LOGGER.debug(files.toString())
       nonTemplates.addAll(files)
     }
 
@@ -77,6 +79,8 @@ class FileUtils {
     List<File> generatedFiles = []
     Path sourceDirPath = templateDir.toPath()
     templates.each { source ->
+      LOGGER.debug('Processing {}', source)
+
       File target = getTargetFile(sourceDirPath, targetDir, source, binding)
       if (source.isDirectory()) {
         return
@@ -110,9 +114,24 @@ class FileUtils {
 
   private static File getTargetFile(Path sourceDirPath, File targetDir, File source, Map binding) {
     Path sourcePath = sourceDirPath.relativize(source.toPath())
+
     String rawTargetPath = new File(targetDir, resolvePaths(sourcePath)).path
+
+    LOGGER.debug(rawTargetPath)
+
     rawTargetPath = rawTargetPath.replaceAll("\\\\", "/")
+    rawTargetPath = rawTargetPath.replace('$', '__DOLLAR__')
+
     String resolvedTargetPath = engine.createTemplate(rawTargetPath).make(binding)
+
+    resolvedTargetPath = resolvedTargetPath.replace('__DOLLAR__', '$')
+
+    resolvedTargetPath = resolvedTargetPath.replace(
+            binding.get("archetypePackage").toString().replace('.', File.separator)
+            , binding.get("packagePath").toString())
+
+    LOGGER.debug(resolvedTargetPath)
+
     new File(resolvedTargetPath)
   }
 
@@ -146,7 +165,13 @@ class FileUtils {
     String escaped = escape(text)
     String ready = escaped.replaceAll('@([^{}/\\\\@\\n,\\s]+)@', '\\$\\{$1\\}')
     String resolved = engine.createTemplate(ready).make(binding)
-    unescape(resolved)
+    resolved = unescape(resolved)
+
+    resolved = resolved.replace(
+            binding.get("archetypePackage").toString()
+            , binding.get("packageName").toString())
+
+    resolved
   }
 
   private static String escape(String text) {

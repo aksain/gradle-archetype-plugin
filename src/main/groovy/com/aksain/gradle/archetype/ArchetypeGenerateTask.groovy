@@ -32,17 +32,21 @@ class ArchetypeGenerateTask extends DefaultTask {
     String projectGroup = getParam('group', 'Please enter the group name')
     String projectName = getParam('name', 'Please enter the project name')
     String projectVersion = getParam('version', 'Please enter the version name', '1.0-SNAPSHOT')
+    String archetypePackagePath = getParam('archetypePackage',
+            'Please enter the archetype package that needs to be replaced with created project packageName',
+            '')
 
     String templatePath = System.getProperty('templates', ArchetypePlugin.DIR_TEMPLATES)
 
     Map binding = [
-        'group'          : projectGroup,
-        'groupId'        : projectGroup,
-        'name'           : projectName,
-        'projectName'    : projectName,
-        'artifactId'     : projectName,
-        'version'        : projectVersion,
-        'project.version': projectVersion
+        'group'           : projectGroup,
+        'groupId'         : projectGroup,
+        'name'            : projectName,
+        'projectName'     : projectName,
+        'artifactId'      : projectName,
+        'version'         : projectVersion,
+        'archetypePackage': archetypePackagePath,
+        'project.version' : projectVersion,
     ]
     extendedBinding(binding)
 
